@@ -6,7 +6,7 @@
 /*   By: akacar <akacar@student.42istanbul.com.tr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/26 18:54:34 by akacar            #+#    #+#             */
-/*   Updated: 2026/09/27 15:22:37 by akacar           ###   ########.fr       */
+/*   Updated: 2026/09/27 21:27:49 by akacar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,5 +26,6 @@ typedef struct s_stack
 }	t_stack;
 
 t_stack	*new_node(int value);
+void	stack_add_back(t_stack **stack, t_stack *new);
 
 #endif
