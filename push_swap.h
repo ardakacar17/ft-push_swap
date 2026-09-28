@@ -6,7 +6,7 @@
 /*   By: akacar <akacar@student.42istanbul.com.tr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/26 18:54:34 by akacar            #+#    #+#             */
-/*   Updated: 2026/09/27 21:27:49 by akacar           ###   ########.fr       */
+/*   Updated: 2026/09/29 01:18:51 by akacar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 # include <stdlib.h>
 # include <unistd.h>
+# include <limits.h>
 # include "libft/libft.h"
 # include "ft_printf/ft_printf.h"
 
@@ -27,5 +28,7 @@ typedef struct s_stack
 
 t_stack	*new_node(int value);
 void	stack_add_back(t_stack **stack, t_stack *new);
+int		is_valid_int(char *str);
+void	stack_free(t_stack **stack);
 
 #endif
