@@ -6,7 +6,7 @@
 /*   By: akacar <akacar@student.42istanbul.com.tr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/29 01:00:36 by akacar            #+#    #+#             */
-/*   Updated: 2026/09/30 00:29:53 by akacar           ###   ########.fr       */
+/*   Updated: 2026/10/01 22:18:49 by akacar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,15 +50,35 @@ static void	handle_arg(t_stack **a, char *str)
 	stack_add_back(a, new);
 }
 
+static int	is_known_flag(char *str)
+{
+	if (!ft_strncmp(str, "--simple", 9))
+		return (1);
+	if (!ft_strncmp(str, "--medium", 9))
+		return (1);
+	if (!ft_strncmp(str, "--complex", 10))
+		return (1);
+	if (!ft_strncmp(str, "--adaptive", 11))
+		return (1);
+	if (!ft_strncmp(str, "--bench", 8))
+		return (1);
+	return (0);
+}
+
 t_stack	*parse_args(int argc, char **argv)
 {
 	t_stack	*a;
 	int		i;
 
 	a = NULL;
-	i = 0;
+	i = 1;
 	while (i < argc)
 	{
+		if (is_known_flag(argv[i]))
+		{
+			i++;
+			continue ;
+		}
 		handle_arg(&a, argv[i]);
 		i++;
 	}
