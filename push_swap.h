@@ -6,7 +6,7 @@
 /*   By: akacar <akacar@student.42istanbul.com.tr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/26 18:54:34 by akacar            #+#    #+#             */
-/*   Updated: 2026/10/01 22:18:56 by akacar           ###   ########.fr       */
+/*   Updated: 2026/10/02 13:42:15 by akacar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,5 +36,11 @@ void	sb(t_stack **b);
 void	ss(t_stack **a, t_stack **b);
 void	pa(t_stack **a, t_stack **b);
 void	pb(t_stack **a, t_stack **b);
+void	ra(t_stack **a);
+void	rb(t_stack **b);
+void	rr(t_stack **a, t_stack **b);
+void	rra(t_stack **a);
+void	rrb(t_stack **b);
+void	rrr(t_stack **a, t_stack **b);
 
 #endif
