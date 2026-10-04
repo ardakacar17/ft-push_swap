@@ -6,15 +6,15 @@
 /*   By: akacar <akacar@student.42istanbul.com.tr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/06 14:41:19 by akacar            #+#    #+#             */
-/*   Updated: 2026/08/22 18:09:26 by akacar           ###   ########.fr       */
+/*   Updated: 2026/10/03 22:54:59 by akacar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 int	ft_atoi(const char *nptr)
 {
-	int	i;
-	int	sign;
-	int	result;
+	int		i;
+	int		sign;
+	long	result;
 
 	i = 0;
 	sign = 1;
@@ -32,5 +32,5 @@ int	ft_atoi(const char *nptr)
 		result = result * 10 + (nptr[i] - '0');
 		i++;
 	}
-	return (sign * result);
+	return ((int)(sign * result));
 }

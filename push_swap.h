@@ -6,7 +6,7 @@
 /*   By: akacar <akacar@student.42istanbul.com.tr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/26 18:54:34 by akacar            #+#    #+#             */
-/*   Updated: 2026/10/02 13:42:15 by akacar           ###   ########.fr       */
+/*   Updated: 2026/10/04 03:26:02 by akacar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,5 +42,6 @@ void	rr(t_stack **a, t_stack **b);
 void	rra(t_stack **a);
 void	rrb(t_stack **b);
 void	rrr(t_stack **a, t_stack **b);
+int		is_sorted(t_stack *a);
 
 #endif
