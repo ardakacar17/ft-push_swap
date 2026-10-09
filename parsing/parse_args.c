@@ -6,7 +6,7 @@
 /*   By: akacar <akacar@student.42istanbul.com.tr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/29 01:00:36 by akacar            #+#    #+#             */
-/*   Updated: 2026/10/03 22:30:41 by akacar           ###   ########.fr       */
+/*   Updated: 2026/10/09 23:20:36 by akacar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,36 +50,36 @@ static void	handle_arg(t_stack **a, char *str)
 	stack_add_back(a, new);
 }
 
-static int	is_known_flag(char *str)
+static int	set_flag(char *str, t_config *cfg)
 {
 	if (!ft_strncmp(str, "--simple", 9))
-		return (1);
-	if (!ft_strncmp(str, "--medium", 9))
-		return (1);
-	if (!ft_strncmp(str, "--complex", 10))
-		return (1);
-	if (!ft_strncmp(str, "--adaptive", 11))
-		return (1);
-	if (!ft_strncmp(str, "--bench", 8))
-		return (1);
-	return (0);
+		cfg->strategy = SIMPLE;
+	else if (!ft_strncmp(str, "--medium", 9))
+		cfg->strategy = MEDIUM;
+	else if (!ft_strncmp(str, "--complex", 10))
+		cfg->strategy = COMPLEX;
+	else if (!ft_strncmp(str, "--adaptive", 11))
+		cfg->strategy = ADAPTIVE;
+	else if (!ft_strncmp(str, "--bench", 8))
+		cfg->bench = 1;
+	else
+		return (0);
+	return (1);
 }
 
-t_stack	*parse_args(int argc, char **argv)
+t_stack	*parse_args(int argc, char **argv, t_config *cfg)
 {
 	t_stack	*a;
 	int		i;
 
 	a = NULL;
+	cfg->strategy = ADAPTIVE;
+	cfg->bench = 0;
 	i = 1;
 	while (i < argc)
 	{
-		if (is_known_flag(argv[i]))
-		{
-			i++;
-			continue ;
-		}
-		handle_arg(&a, argv[i]);
+		if (!set_flag(argv[i], cfg))
+			handle_arg(&a, argv[i]);
 		i++;
 	}
 	return (a);

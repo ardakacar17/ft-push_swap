@@ -6,7 +6,7 @@
 /*   By: akacar <akacar@student.42istanbul.com.tr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/26 18:54:34 by akacar            #+#    #+#             */
-/*   Updated: 2026/10/04 03:26:02 by akacar           ###   ########.fr       */
+/*   Updated: 2026/10/09 23:20:28 by akacar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,11 +26,25 @@ typedef struct s_stack
 	struct s_stack	*next;
 }	t_stack;
 
+typedef enum e_strategy
+{
+	ADAPTIVE,
+	SIMPLE,
+	MEDIUM,
+	COMPLEX
+}	t_strategy;
+
+typedef struct s_config
+{
+	t_strategy	strategy;
+	int			bench;
+}	t_config;
+
 t_stack	*new_node(int value);
 void	stack_add_back(t_stack **stack, t_stack *new);
 int		is_valid_int(char *str);
 void	stack_free(t_stack **stack);
-t_stack	*parse_args(int argc, char **argv);
+t_stack	*parse_args(int argc, char **argv, t_config *cfg);
 void	sa(t_stack **a);
 void	sb(t_stack **b);
 void	ss(t_stack **a, t_stack **b);
@@ -43,5 +57,6 @@ void	rra(t_stack **a);
 void	rrb(t_stack **b);
 void	rrr(t_stack **a, t_stack **b);
 int		is_sorted(t_stack *a);
+double	compute_disorder(t_stack *a);
 
 #endif
