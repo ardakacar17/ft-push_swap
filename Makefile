@@ -8,7 +8,7 @@ FTPRINTF = ft_printf/libftprintf.a
 SRCS = main.c parsing/parse_args.c parsing/validate.c stack_utils/stack_new.c \
 	stack_utils/stack_add_back.c stack_utils/stack_free.c operations/ops_swap.c \
 	operations/ops_push.c operations/ops_rotate.c operations/ops_rrotate.c \
-	stack_utils/stack_check.c
+	stack_utils/stack_check.c disorder.c
 
 OBJS = $(SRCS:.c=.o)
 
@@ -17,7 +17,7 @@ all: $(NAME)
 $(NAME): $(OBJS) $(LIBFT) $(FTPRINTF)
 	$(CC) $(CFLAGS) $(OBJS) $(LIBFT) $(FTPRINTF) -o $(NAME)
 
-%.o: %.c
+%.o: %.c push_swap.h
 	$(CC) $(CFLAGS) -I. -c $< -o $@
 
 $(LIBFT):

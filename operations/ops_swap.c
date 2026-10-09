@@ -6,7 +6,7 @@
 /*   By: akacar <akacar@student.42istanbul.com.tr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/01 00:50:38 by akacar            #+#    #+#             */
-/*   Updated: 2026/10/02 13:42:09 by akacar           ###   ########.fr       */
+/*   Updated: 2026/10/09 23:20:38 by akacar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,9 @@ void	sa(t_stack **a)
 	tmp = (*a)->value;
 	(*a)->value = (*a)->next->value;
 	(*a)->next->value = tmp;
+	tmp = (*a)->index;
+	(*a)->index = (*a)->next->index;
+	(*a)->next->index = tmp;
 	ft_printf("sa\n");
 }
 
@@ -33,6 +36,9 @@ void	sb(t_stack **b)
 	tmp = (*b)->value;
 	(*b)->value = (*b)->next->value;
 	(*b)->next->value = tmp;
+	tmp = (*b)->index;
+	(*b)->index = (*b)->next->index;
+	(*b)->next->index = tmp;
 	ft_printf("sb\n");
 }
 
@@ -45,12 +51,18 @@ void	ss(t_stack **a, t_stack **b)
 		tmp = (*a)->value;
 		(*a)->value = (*a)->next->value;
 		(*a)->next->value = tmp;
+		tmp = (*a)->index;
+		(*a)->index = (*a)->next->index;
+		(*a)->next->index = tmp;
 	}
 	if (*b && (*b)->next)
 	{
 		tmp = (*b)->value;
 		(*b)->value = (*b)->next->value;
 		(*b)->next->value = tmp;
+		tmp = (*b)->index;
+		(*b)->index = (*b)->next->index;
+		(*b)->next->index = tmp;
 	}
 	ft_printf("ss\n");
 }
