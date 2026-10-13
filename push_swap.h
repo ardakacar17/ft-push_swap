@@ -6,7 +6,7 @@
 /*   By: akacar <akacar@student.42istanbul.com.tr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/26 18:54:34 by akacar            #+#    #+#             */
-/*   Updated: 2026/10/09 23:20:28 by akacar           ###   ########.fr       */
+/*   Updated: 2026/10/10 17:05:37 by akacar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,23 +40,45 @@ typedef struct s_config
 	int			bench;
 }	t_config;
 
-t_stack	*new_node(int value);
-void	stack_add_back(t_stack **stack, t_stack *new);
-int		is_valid_int(char *str);
-void	stack_free(t_stack **stack);
-t_stack	*parse_args(int argc, char **argv, t_config *cfg);
-void	sa(t_stack **a);
-void	sb(t_stack **b);
-void	ss(t_stack **a, t_stack **b);
-void	pa(t_stack **a, t_stack **b);
-void	pb(t_stack **a, t_stack **b);
-void	ra(t_stack **a);
-void	rb(t_stack **b);
-void	rr(t_stack **a, t_stack **b);
-void	rra(t_stack **a);
-void	rrb(t_stack **b);
-void	rrr(t_stack **a, t_stack **b);
-int		is_sorted(t_stack *a);
-double	compute_disorder(t_stack *a);
+typedef enum e_op
+{
+	SA,
+	SB,
+	SS,
+	PA,
+	PB,
+	RA,
+	RB,
+	RR,
+	RRA,
+	RRB,
+	RRR,
+	OP_COUNT
+}	t_op;
+
+typedef struct s_ps
+{
+	t_stack		*a;
+	t_stack		*b;
+	int			size;
+	t_config	cfg;
+	long		counts[OP_COUNT];
+}	t_ps;
+
+t_stack		*new_node(int value);
+void		stack_add_back(t_stack **stack, t_stack *new);
+int			is_valid_int(char *str);
+void		stack_free(t_stack **stack);
+t_stack		*parse_args(int argc, char **argv, t_config *cfg);
+void		swap(t_stack **s);
+void		push(t_stack **src, t_stack **dst);
+void		rotate(t_stack **s);
+void		rev_rotate(t_stack **s);
+const char	*op_name(t_op op);
+void		apply_op(t_ps *ps, t_op op);
+void		do_op(t_ps *ps, t_op op);
+int			is_sorted(t_stack *a);
+int			stack_size(t_stack *s);
+double		compute_disorder(t_stack *a);
 
 #endif

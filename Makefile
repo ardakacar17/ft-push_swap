@@ -6,8 +6,8 @@ LIBFT = libft/libft.a
 FTPRINTF = ft_printf/libftprintf.a
 
 SRCS = main.c parsing/parse_args.c parsing/validate.c stack_utils/stack_new.c \
-	stack_utils/stack_add_back.c stack_utils/stack_free.c operations/ops_swap.c \
-	operations/ops_push.c operations/ops_rotate.c operations/ops_rrotate.c \
+	stack_utils/stack_add_back.c stack_utils/stack_free.c \
+	operations/ops_primitives.c operations/ops_dispatch.c \
 	stack_utils/stack_check.c disorder.c
 
 OBJS = $(SRCS:.c=.o)

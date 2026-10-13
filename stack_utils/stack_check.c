@@ -24,3 +24,16 @@ int	is_sorted(t_stack *a)
 	}
 	return (1);
 }
+
+int	stack_size(t_stack *s)
+{
+	int	size;
+
+	size = 0;
+	while (s)
+	{
+		size++;
+		s = s->next;
+	}
+	return (size);
+}
