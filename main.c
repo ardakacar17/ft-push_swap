@@ -6,7 +6,7 @@
 /*   By: akacar <akacar@student.42istanbul.com.tr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/27 11:48:00 by akacar            #+#    #+#             */
-/*   Updated: 2026/09/27 21:27:51 by akacar           ###   ########.fr       */
+/*   Updated: 2026/10/10 17:05:42 by akacar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,14 @@
 
 int	main(int argc, char **argv)
 {
-	t_stack	*a;
-	t_stack	*b;
+	t_ps	ps;
 
-	a = NULL;
-	b = NULL;
 	if (argc < 2)
 		return (0);
+	ft_bzero(&ps, sizeof(t_ps));
+	ps.a = parse_args(argc, argv, &ps.cfg);
+	ps.size = stack_size(ps.a);
+	stack_free(&ps.a);
+	stack_free(&ps.b);
 	return (0);
 }
