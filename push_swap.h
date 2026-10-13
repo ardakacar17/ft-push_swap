@@ -6,7 +6,7 @@
 /*   By: akacar <akacar@student.42istanbul.com.tr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/26 18:54:34 by akacar            #+#    #+#             */
-/*   Updated: 2026/10/10 17:05:37 by akacar           ###   ########.fr       */
+/*   Updated: 2026/10/13 19:17:46 by akacar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,12 +70,11 @@ void		stack_add_back(t_stack **stack, t_stack *new);
 int			is_valid_int(char *str);
 void		stack_free(t_stack **stack);
 t_stack		*parse_args(int argc, char **argv, t_config *cfg);
-void		swap(t_stack **s);
-void		push(t_stack **src, t_stack **dst);
-void		rotate(t_stack **s);
-void		rev_rotate(t_stack **s);
+int			swap(t_stack **s);
+int			push(t_stack **src, t_stack **dst);
+int			rotate(t_stack **s);
+int			rev_rotate(t_stack **s);
 const char	*op_name(t_op op);
-void		apply_op(t_ps *ps, t_op op);
 void		do_op(t_ps *ps, t_op op);
 int			is_sorted(t_stack *a);
 int			stack_size(t_stack *s);
