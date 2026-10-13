@@ -6,7 +6,7 @@
 /*   By: akacar <akacar@student.42istanbul.com.tr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/10 16:10:00 by akacar            #+#    #+#             */
-/*   Updated: 2026/10/11 12:45:49 by akacar           ###   ########.fr       */
+/*   Updated: 2026/10/13 19:20:41 by akacar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,39 +14,44 @@
 
 const char	*op_name(t_op op)
 {
-	static const char	*names[OP_COUNT] =
-	{
+	static const char	*names[OP_COUNT] = {
 		"sa", "sb", "ss", "pa", "pb", "ra",
 		"rb", "rr", "rra", "rrb", "rrr"
 	};
+
 	return (names[op]);
 }
 
-void	apply_op(t_ps *ps, t_op op)
+static int	apply_op(t_ps *ps, t_op op)
 {
+	int	moved;
+
+	moved = 0;
 	if (op == SA || op == SS)
-		swap(&ps->a);
+		moved += swap(&ps->a);
 	if (op == SB || op == SS)
-		swap(&ps->b);
+		moved += swap(&ps->b);
 	if (op == PA)
-		push(&ps->b, &ps->a);
+		moved += push(&ps->b, &ps->a);
 	if (op == PB)
-		push(&ps->a, &ps->b);
+		moved += push(&ps->a, &ps->b);
 	if (op == RA || op == RR)
-		rotate(&ps->a);
+		moved += rotate(&ps->a);
 	if (op == RB || op == RR)
-		rotate(&ps->b);
+		moved += rotate(&ps->b);
 	if (op == RRA || op == RRR)
-		rev_rotate(&ps->a);
+		moved += rev_rotate(&ps->a);
 	if (op == RRB || op == RRR)
-		rev_rotate(&ps->b);
+		moved += rev_rotate(&ps->b);
+	return (moved);
 }
 
 void	do_op(t_ps *ps, t_op op)
 {
 	const char	*name;
 
-	apply_op(ps, op);
+	if (!apply_op(ps, op))
+		return ;
 	ps->counts[op]++;
 	name = op_name(op);
 	ft_printf("%s\n", name);
