@@ -6,7 +6,7 @@
 /*   By: zguney <zguney@student.42istanbul.com.t    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/26 18:54:34 by akacar            #+#    #+#             */
-/*   Updated: 2026/10/18 12:05:45 by zguney           ###   ########.fr       */
+/*   Updated: 2026/10/18 19:35:29 by zguney           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,6 +88,7 @@ void		sort_simple(t_ps *ps);
 void		sort_medium(t_ps *ps);
 void		sort_complex(t_ps *ps);
 void		run_strategy(t_ps *ps);
-
+t_strategy	resolve_strategy(t_ps *ps);
+void		print_bench(t_ps *ps);
 
 #endif
