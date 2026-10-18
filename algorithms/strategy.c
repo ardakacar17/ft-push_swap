@@ -12,8 +12,6 @@
 
 #include "../push_swap.h"
 
-#include "../push_swap.h"
-
 t_strategy	resolve_strategy(t_ps *ps)
 {
 	if (ps->cfg.strategy != ADAPTIVE)
