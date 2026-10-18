@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: akacar <akacar@student.42istanbul.com.tr>  +#+  +:+       +#+        */
+/*   By: zguney <zguney@student.42istanbul.com.t    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/26 18:54:34 by akacar            #+#    #+#             */
-/*   Updated: 2026/10/13 19:17:46 by akacar           ###   ########.fr       */
+/*   Updated: 2026/10/18 12:05:45 by zguney           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,6 +63,7 @@ typedef struct s_ps
 	int			size;
 	t_config	cfg;
 	long		counts[OP_COUNT];
+	double disorder;
 }	t_ps;
 
 t_stack		*new_node(int value);
@@ -79,5 +80,14 @@ void		do_op(t_ps *ps, t_op op);
 int			is_sorted(t_stack *a);
 int			stack_size(t_stack *s);
 double		compute_disorder(t_stack *a);
+void		assign_index(t_stack *a);
+int			find_pos(t_stack *s, int index);
+void		rot_a_to(t_ps *ps, int pos);
+void		rot_b_to(t_ps *ps, int pos);
+void		sort_simple(t_ps *ps);
+void		sort_medium(t_ps *ps);
+void		sort_complex(t_ps *ps);
+void		run_strategy(t_ps *ps);
+
 
 #endif
