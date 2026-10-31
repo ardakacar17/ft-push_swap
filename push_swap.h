@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: zguney <zguney@student.42istanbul.com.t    +#+  +:+       +#+        */
+/*   By: akacar <akacar@student.42istanbul.com.tr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/26 18:54:34 by akacar            #+#    #+#             */
-/*   Updated: 2026/10/18 19:35:29 by zguney           ###   ########.fr       */
+/*   Updated: 2026/11/01 02:08:39 by akacar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,7 +63,7 @@ typedef struct s_ps
 	int			size;
 	t_config	cfg;
 	long		counts[OP_COUNT];
-	double disorder;
+	double		disorder;
 }	t_ps;
 
 t_stack		*new_node(int value);
@@ -71,6 +71,7 @@ void		stack_add_back(t_stack **stack, t_stack *new);
 int			is_valid_int(char *str);
 void		stack_free(t_stack **stack);
 t_stack		*parse_args(int argc, char **argv, t_config *cfg);
+void		free_split(char **words);
 int			swap(t_stack **s);
 int			push(t_stack **src, t_stack **dst);
 int			rotate(t_stack **s);
