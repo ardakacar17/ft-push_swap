@@ -6,7 +6,7 @@ LIBFT = libft/libft.a
 FTPRINTF = ft_printf/libftprintf.a
 
 SRCS = main.c disorder.c bench.c \
-	parsing/parse_args.c parsing/validate.c \
+	parsing/parse_args.c parsing/validate.c parsing/free_split.c \
 	stack_utils/stack_new.c stack_utils/stack_add_back.c \
 	stack_utils/stack_free.c stack_utils/stack_check.c \
 	stack_utils/stack_index.c stack_utils/stack_pos.c \
