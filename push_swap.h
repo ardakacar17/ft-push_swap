@@ -86,6 +86,7 @@ int			find_pos(t_stack *s, int index);
 void		rot_a_to(t_ps *ps, int pos);
 void		rot_b_to(t_ps *ps, int pos);
 void		sort_simple(t_ps *ps);
+void		sort_three(t_ps *ps);
 void		sort_medium(t_ps *ps);
 void		sort_complex(t_ps *ps);
 void		run_strategy(t_ps *ps);

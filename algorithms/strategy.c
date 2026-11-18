@@ -27,6 +27,8 @@ void	run_strategy(t_ps *ps)
 {
 	t_strategy	s;
 
+	if (ps->cfg.strategy == ADAPTIVE && ps->size <= 5)
+		return (sort_simple(ps));
 	s = resolve_strategy(ps);
 	if (s == SIMPLE)
 		sort_simple(ps);
