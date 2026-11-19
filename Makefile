@@ -13,7 +13,8 @@ SRCS = main.c disorder.c bench.c \
 	operations/ops_primitives.c operations/ops_dispatch.c \
 	operations/ops_helpers.c \
 	algorithms/simple.c algorithms/medium.c \
-	algorithms/complex.c algorithms/strategy.c
+	algorithms/complex.c algorithms/strategy.c \
+	algorithms/small.c
 
 OBJS = $(SRCS:.c=.o)
 
