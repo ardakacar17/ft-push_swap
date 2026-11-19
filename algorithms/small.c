@@ -17,7 +17,7 @@ static void	sort_three(t_ps *ps)
 	int	x;
 	int	y;
 	int	z;
- 
+
 	x = ps->a->index;
 	y = ps->a->next->index;
 	z = ps->a->next->next->index;

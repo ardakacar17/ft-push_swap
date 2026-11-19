@@ -12,7 +12,7 @@
 
 #include "../push_swap.h"
 
-void	rot_a_to(t_ps *ps, int pos)//sırası pos olan elemanı tepeye getirmek. Elemanı tepeye getirmek için ya yukarı döndürürsün (ra, pos kadar) ya da aşağı döndürürsün (rra, size - pos kadar). Hangisi kısaysa onu seçmek hamle sayısını yarıya indirir.
+void	rot_a_to(t_ps *ps, int pos)
 {
 	int	size;
 

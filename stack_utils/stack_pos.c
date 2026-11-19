@@ -12,7 +12,7 @@
 
 #include "../push_swap.h"
 
-int	find_pos(t_stack *s, int index)//şu index değerine sahip düğüm stack de kaçıncı sırada?
+int	find_pos(t_stack *s, int index)
 {
 	int	pos;
 
